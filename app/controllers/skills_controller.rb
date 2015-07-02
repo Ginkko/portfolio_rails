@@ -20,7 +20,26 @@ class SkillsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def edit
+    @skill = Skill.find(params[:id])
+  end
+
+  def update
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      flash[:alert] = "Skill Modified"
+      redirect_to skill_path(@skill)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to skills_path
   end
 
   private def skill_params

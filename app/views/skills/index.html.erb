@@ -4,6 +4,15 @@
 
 <ul>
   <% @skills.each do |skill| %>
-    <li><%= link_to skill.name, skill_path(skill) %></li>
+    <li>
+      <%= link_to skill.name, skill_path(skill) %>
+
+      <%= link_to edit_skill_path(skill) do %>
+        <span class="glyphicon glyphicon-edit orange"></span>
+      <% end %>
+      <%= link_to skill_path(skill), data: {confirm: "Destroy Skill?", method: 'delete'} do %>
+        <span class="glyphicon glyphicon-remove-sign red"></span>
+      <% end %>
+    </li>
   <% end %>
 </ul>
