@@ -5,7 +5,14 @@
 <p>
   <%= @skill.description %>
 </p>
-
+<% if @skill.projects.any? %>
+  <li>Projects:</li>
+    <ul>
+      <% @skill.projects.each do |project| %>
+      <li><%= link_to project.name, project_path(project) %></li>
+      <% end %>
+    </ul>
+<% end %>
 
 <div class="btn-group btn-group-sm " role="group">
   <%= link_to "Edit", edit_skill_path(@skill), class: "btn btn-warning" %>
