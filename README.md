@@ -1,28 +1,12 @@
 # Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Portfolio is a work in progress web-based portfolio management site built with Rails.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To build locally:
+- clone repo
+- bundle install
+- rake db:create
+- rake db:migrate
+- rake db:test:prepare
+- rails s
+- navigate to localhost:3000 in your browser
