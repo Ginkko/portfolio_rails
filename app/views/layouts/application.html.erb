@@ -8,7 +8,16 @@
 </head>
 <body>
 
+<div class="container">
 <%= yield %>
-
+</div>
+ <div class="text-center">
+      <%= flash[:alert] %>
+  </div>
+ <nav class='navbar navbar-default' role='navigation' id="nav-footer">
+      <ul class='nav navbar-nav'>
+        <li><%= link_to "Skills", skills_path %></li>
+      </ul>
+    </nav>
 </body>
 </html>
