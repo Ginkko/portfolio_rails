@@ -1,0 +1,7 @@
+<%= render 'layouts/errors', object: @skill %>
+
+<%= bootstrap_form_for(@skill) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.submit data: {disable_with: "Skilling..." }, class: "btn btn-success btn-block" %>
+<% end %>
