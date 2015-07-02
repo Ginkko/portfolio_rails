@@ -1,0 +1,18 @@
+<% content_for(:title, "Projects | PORTFOLIO")  %>
+
+<h1>Projects</h1>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.name, project_path(project) %>
+
+      <%= link_to edit_project_path(project) do %>
+        <span class="glyphicon glyphicon-edit orange"></span>
+      <% end %>
+      <%= link_to project_path(project), data: {confirm: "Destroy Project?", method: 'delete'} do %>
+        <span class="glyphicon glyphicon-remove-sign red"></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

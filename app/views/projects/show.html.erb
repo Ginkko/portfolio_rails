@@ -1,0 +1,19 @@
+<%= content_for(:title, "#{@project.name} | PORTFOLIO") %>
+
+<h1><%= @project.name %></h1>
+<ul>
+  <% if @project.github_link %>
+    <li>Github: <%= @project.github_link %></li>
+  <% end %>
+  <% if @project.live_link %>
+    <li>Live: <%= @project.live_link %></li>
+  <% end %>
+</ul>
+
+
+<div class="btn-group btn-group-sm " role="group">
+  <%= link_to "Edit", edit_project_path(@project), class: "btn btn-warning" %>
+  <%= link_to "Delete", project_path(@project), class: "btn btn-danger",
+                                        data: {confirm: "Destroy Project?",
+                                                method: 'delete'} %>
+</div>

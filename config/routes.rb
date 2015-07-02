@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "skills#index"
+  root "projects#index"
 
   resources "skills"
-  
+  resources "projects"
 end

@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @project %>
+
+<%= bootstrap_form_for(@project) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :github_link %>
+  <%= f.text_field :live_link %>
+  <%= f.submit data: {disable_with: "Projectorizing..." }, class: "btn btn-success btn-block" %>
+<% end %>
