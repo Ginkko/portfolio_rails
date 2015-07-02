@@ -4,5 +4,10 @@
   <%= f.text_field :name %>
   <%= f.text_field :github_link %>
   <%= f.text_field :live_link %>
+  <% if @project.id != nil %>
+    <% if @skills.any? %>
+      <%= f.collection_check_boxes(:skill_ids, @skills, :id, :name) %>
+    <% end %>
+  <% end %>
   <%= f.submit data: {disable_with: "Projectorizing..." }, class: "btn btn-success btn-block" %>
 <% end %>

@@ -3,5 +3,10 @@
 <%= bootstrap_form_for(@skill) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
+  <% if @skill.id != nil %>
+    <% if @projects.any? %>
+      <%= f.collection_check_boxes(:project_ids, @projects, :id, :name) %>
+    <% end %>
+  <% end %>
   <%= f.submit data: {disable_with: "Skilling..." }, class: "btn btn-success btn-block" %>
 <% end %>

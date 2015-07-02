@@ -24,6 +24,7 @@ class SkillsController < ApplicationController
 
   def edit
     @skill = Skill.find(params[:id])
+    @projects = Project.all
   end
 
   def update
@@ -43,7 +44,9 @@ class SkillsController < ApplicationController
   end
 
   private def skill_params
-    params.require(:skill).permit(:name, :description)
+    params.require(:skill).permit!
+    # See controllers/projects_controller - project_params for details
+    # (:name, :description, :project_ids)
   end
 
 end

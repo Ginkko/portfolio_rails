@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @skills = Skill.all
   end
 
   def update
@@ -43,7 +44,9 @@ class ProjectsController < ApplicationController
   end
 
   private def project_params
-    params.require(:project).permit(:name, :github_link, :live_link)
+    params.require(:project).permit!
+    # Need to figure out how to accept :skill_ids as an array without global permit! hack
+    # (:name, :github_link, :live_link, :skill_ids) --- not working, Error : skill_ids not permitted
   end
 
 end
