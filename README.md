@@ -8,5 +8,6 @@ To build locally:
 - rake db:create
 - rake db:migrate
 - rake db:test:prepare
+- rake db:seed (if you want seeded example data)
 - rails s
 - navigate to localhost:3000 in your browser
