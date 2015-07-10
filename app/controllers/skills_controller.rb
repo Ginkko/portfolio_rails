@@ -9,7 +9,12 @@ class SkillsController < ApplicationController
   end
 
   def new
-    @skill = Skill.new
+    if is_admin?
+      @skill = Skill.new
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to :back
+    end
   end
 
   def create
@@ -23,8 +28,13 @@ class SkillsController < ApplicationController
   end
 
   def edit
-    @skill = Skill.find(params[:id])
-    @projects = Project.all
+    if is_admin?
+      @skill = Skill.find(params[:id])
+      @projects = Project.all
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to :back
+    end
   end
 
   def update

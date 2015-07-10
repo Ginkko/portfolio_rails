@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all
   end
@@ -9,7 +11,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if is_admin?
+      @post = Post.new
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to root_path
+    end
   end
 
   def create
@@ -23,7 +30,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    if is_admin?
+      @post = Post.find(params[:id])
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to root_path
+    end
   end
 
   def update

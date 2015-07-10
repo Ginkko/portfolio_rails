@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @projects = Project.all
   end
@@ -9,7 +11,12 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    if is_admin?
+      @project = Project.new
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to :back
+    end
   end
 
   def create
@@ -23,8 +30,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
-    @skills = Skill.all
+    if is_admin?
+      @project = Project.find(params[:id])
+      @skills = Skill.all
+    else
+      flash[:alert] = "You must be an administrator to access these functions"
+      redirect_to :back
+    end
   end
 
   def update

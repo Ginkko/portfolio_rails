@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new
@@ -13,7 +15,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       render :new
-    end
+      end
   end
 
   def edit
