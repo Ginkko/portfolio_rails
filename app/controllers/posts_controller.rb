@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:alert] = "Post Added"
+      flash[:notice] = "Post Added"
       redirect_to post_path(@post)
     else
       render :new
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:alert] = "Post Modified"
+      flash[:notice] = "Post Modified"
       redirect_to post_path(@post)
     else
       render :edit

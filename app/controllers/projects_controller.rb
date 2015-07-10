@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      flash[:alert] = "Project Added"
+      flash[:noitce] = "Project Added"
       redirect_to project_path(@project)
     else
       render :new
@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      flash[:alert] = "Project Modified"
+      flash[:notice] = "Project Modified"
       redirect_to project_path(@project)
     else
       render :edit

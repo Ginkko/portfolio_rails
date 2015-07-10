@@ -20,7 +20,7 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
     if @skill.save
-      flash[:alert] = "Skill Added"
+      flash[:notice] = "Skill Added"
       redirect_to skill_path(@skill)
     else
       render :new
@@ -40,7 +40,7 @@ class SkillsController < ApplicationController
   def update
     @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
-      flash[:alert] = "Skill Modified"
+      flash[:notice] = "Skill Modified"
       redirect_to skill_path(@skill)
     else
       render :edit
