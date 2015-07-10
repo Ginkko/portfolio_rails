@@ -1,0 +1,19 @@
+<% content_for(:title, "Posts | PORTFOLIO")  %>
+
+<h1>Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.name, post_path(post) %>
+      <% if is_admin? || current_user == post.user %>
+        <%= link_to edit_post_path(post) do %>
+          <span class="glyphicon glyphicon-edit orange"></span>
+        <% end %>
+        <%= link_to post_path(post), data: {confirm: "Destroy Post?", method: 'delete'} do %>
+          <span class="glyphicon glyphicon-remove-sign red"></span>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

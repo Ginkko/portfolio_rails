@@ -9,12 +9,13 @@
 <body>
 
 <div class="container">
+  <div class="text-center">
+       <%= flash[:alert] %>
+       <%= flash[:notice] %>
+   </div>
 <%= yield %>
 </div>
- <div class="text-center">
-      <%= flash[:alert] %>
-      <%= flash[:notice] %>
-  </div>
+
 
 
 <!--  <nav class='navbar navbar-default' role='navigation' id="nav-footer">
@@ -36,16 +37,18 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-  <a class="navbar-brand" href="#">Home</a>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Skills", skills_path %></li>
-        <li><%= link_to "New Skill", new_skill_path %></li>
-        <li><%= link_to "Projects", projects_path %></li>
-        <li><%= link_to "New Project", new_project_path %></li>
-    </ul>
-
-
+    <a class="navbar-brand" href="#">Home</a>
+    <div class="navbar-collapse collapse">
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "Skills", skills_path %></li>
+            <li><%= link_to "New Skill", new_skill_path %></li>
+            <li><%= link_to "Projects", projects_path %></li>
+            <li><%= link_to "New Project", new_project_path %></li>
+            <li><%= link_to "Posts", posts_path %></li>
+            <li><%= link_to "New Post", new_post_path %></li>
+        </ul>
+      <% end %>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li>Logged in as <strong><%= current_user.email %></strong></li>

@@ -1,0 +1,19 @@
+<%= content_for(:title, "#{@post.name} | PORTFOLIO") %>
+
+<h1><%= @post.name %></h1>
+<p>
+  Posted by: <%= @post.user.email %>
+</p>
+<hr>
+<p>
+  <%= @post.description %>
+</p>
+
+<% if is_admin? || current_user == @post.user %>
+  <div class="btn-group btn-group-sm " role="group">
+    <%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning" %>
+    <%= link_to "Delete", post_path(@post), class: "btn btn-danger",
+                                          data: {confirm: "Destroy Post?",
+                                                  method: 'delete'} %>
+  </div>
+<% end %>

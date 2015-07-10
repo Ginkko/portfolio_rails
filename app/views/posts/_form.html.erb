@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @post %>
+
+<%= bootstrap_form_for(@post) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit data: {disable_with: "Posting..." }, class: "btn btn-success btn-block" %>
+<% end %>
