@@ -53,7 +53,8 @@ class SkillsController < ApplicationController
     redirect_to skills_path
   end
 
-  private def skill_params
+  private
+   def skill_params
     params.require(:skill).permit!
     # See controllers/projects_controller - project_params for details
     # (:name, :description, :project_ids)

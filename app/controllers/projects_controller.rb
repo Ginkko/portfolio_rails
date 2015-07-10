@@ -55,7 +55,8 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  private def project_params
+  private
+   def project_params
     params.require(:project).permit!
     # Need to figure out how to accept :skill_ids as an array without global permit! hack
     # (:name, :github_link, :live_link, :skill_ids) --- not working, Error : skill_ids not permitted
