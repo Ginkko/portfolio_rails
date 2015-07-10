@@ -3,6 +3,8 @@ require 'rails_helper'
 describe "delete or edit a project process" do
 
   it "deletes a project" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit new_project_path
     fill_in 'Name', with: "Test Project"
     click_on 'Create Project'
@@ -13,6 +15,8 @@ describe "delete or edit a project process" do
   end
 
   it "edits a project" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit new_project_path
     fill_in 'Name', with: "Test Project"
     click_on 'Create Project'

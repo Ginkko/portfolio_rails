@@ -20,6 +20,15 @@ require 'simplecov'
 
 SimpleCov.start
 
+
+def log_in
+  visit '/'
+  click_link "Login"
+  fill_in 'Email', with: "admin@admin.com"
+  fill_in 'Password', with: "123456789"
+  click_button "Log in"
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

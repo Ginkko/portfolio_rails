@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "the add a skill process" do
   it "adds a new skill" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit '/'
     click_on "New Skill"
     fill_in 'Name', with: 'Agility'
@@ -11,6 +13,8 @@ describe "the add a skill process" do
   end
 
   it "returns an error when no name is entered" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit new_skill_path
     click_on "Create Skill"
     expect(page).to have_content 'You done messed up'

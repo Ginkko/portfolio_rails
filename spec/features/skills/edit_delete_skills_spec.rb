@@ -3,6 +3,8 @@ require 'rails_helper'
 describe "delete or edit a skill process" do
 
   it "deletes a skill" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit new_skill_path
     fill_in 'Name', with: "Test Skill"
     fill_in 'Description', with: "Test Description"
@@ -14,6 +16,8 @@ describe "delete or edit a skill process" do
   end
 
   it "edits a skill" do
+    user = FactoryGirl.create(:user)
+    log_in
     visit new_skill_path
     fill_in 'Name', with: "Test Skill"
     fill_in 'Description', with: "Test Description"
