@@ -37,7 +37,7 @@
  }
 
  body {
-   padding-bottom: 30px;
+   padding-top: 50px;
  }
 
 .red  {
@@ -46,4 +46,14 @@
 
 .orange {
   color: #f0ad4e;
+}
+
+.navbar
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
 }
