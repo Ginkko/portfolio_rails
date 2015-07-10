@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources "skills"
   resources "projects"
-  resources "posts"
+  resources "posts" do
+    resources "comments", except: ["show", "index"]
+  end
 end
