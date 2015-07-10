@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     if @comment.save
-      flash[:alert] = "Comment Added"
+      flash[:notice] = "Comment Added"
       redirect_to post_path(@post)
     else
       render :new
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      flash[:alert] = "Comment Modified"
+      flash[:notice] = "Comment Modified"
       redirect_to post_path(@post)
     else
       render :edit
