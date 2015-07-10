@@ -18,10 +18,11 @@
   <% end %>
 </ul>
 
-
-<div class="btn-group btn-group-sm " role="group">
-  <%= link_to "Edit", edit_project_path(@project), class: "btn btn-warning" %>
-  <%= link_to "Delete", project_path(@project), class: "btn btn-danger",
-                                        data: {confirm: "Destroy Project?",
-                                                method: 'delete'} %>
-</div>
+<% if is_admin? %>
+  <div class="btn-group btn-group-sm " role="group">
+    <%= link_to "Edit", edit_project_path(@project), class: "btn btn-warning" %>
+    <%= link_to "Delete", project_path(@project), class: "btn btn-danger",
+                                          data: {confirm: "Destroy Project?",
+                                                  method: 'delete'} %>
+  </div>
+<% end %>
