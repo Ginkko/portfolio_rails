@@ -1,4 +1,6 @@
- <%= bootstrap_form_for Reference.new, remote: true do |f| %>
+<%= render 'layouts/errors', object: @reference %>
+
+ <%= bootstrap_form_for @reference, remote: true do |f| %>
    <%= f.text_field :name %>
    <%= f.email_field :email, placeholder: "name@email.com" %>
    <%= f.hidden_field :user_id, value: current_user.id %>

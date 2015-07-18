@@ -9,6 +9,7 @@ class ReferencesController < ApplicationController
   end
 
   def new
+    @reference = Reference.new
     respond_to do |format|
       format.html { :back }
       format.js
