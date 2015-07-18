@@ -550,6 +550,7 @@
         1,
         1,
         null,
+        1,
         null
       ],
       "/home/nitrous/code/portfolio_rails/app/models/user.rb": [
@@ -1138,6 +1139,6 @@
         null
       ]
     },
-    "timestamp": 1437245237
+    "timestamp": 1437248391
   }
 }

@@ -1,0 +1,6 @@
+ <%= bootstrap_form_for Reference.new, remote: true do |f| %>
+   <%= f.text_field :name %>
+   <%= f.email_field :email, placeholder: "name@email.com" %>
+   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit data: {disable_with: "Referencing..." }, class: "btn btn-success btn-block" %>
+ <% end %>
