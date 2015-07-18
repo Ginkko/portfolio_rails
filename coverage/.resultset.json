@@ -827,6 +827,23 @@
         1,
         null
       ],
+      "/home/nitrous/code/portfolio_rails/spec/models/reference_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/nitrous/code/portfolio_rails/app/models/reference.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
       "/home/nitrous/code/portfolio_rails/spec/models/skill_spec.rb": [
         1,
         null,
@@ -919,6 +936,7 @@
         null,
         null,
         1,
+        1,
         5,
         null,
         null,
@@ -997,6 +1015,7 @@
         null,
         null,
         1,
+        1,
         5,
         null,
         null,
@@ -1046,6 +1065,7 @@
         1,
         null,
         null,
+        1,
         1,
         2,
         null,
@@ -1109,6 +1129,7 @@
         null,
         null,
         1,
+        1,
         5,
         null,
         null,
@@ -1117,6 +1138,6 @@
         null
       ]
     },
-    "timestamp": 1436562443
+    "timestamp": 1437245237
   }
 }
