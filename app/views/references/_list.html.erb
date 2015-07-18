@@ -1,0 +1,9 @@
+<ul>
+  <% @references.each do |reference| %>
+    <li>
+      <%= reference.name %> - <%= reference.email %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Hide References", references_path, class: "btn btn-info btn-block" %>

@@ -9,22 +9,18 @@
   <%= @post.description %>
 </p>
 <hr>
-<% if @post.comments.any? %>
-  <% @post.comments.each do |comment| %>
-    <p><%= link_to comment.user.email, user_path(comment.user)  %> replies: <%= comment.description  %>
-    <% if is_admin? || current_user == comment.user %>
-      <%= link_to edit_post_comment_path(@post, comment) do %>
-        <span class="glyphicon glyphicon-edit orange"></span>
-      <% end %>
-      <%= link_to post_comment_path(@post, comment), id: "delete_comment_#{comment.id}", data: {confirm: "Destroy Comment?", method: 'delete'} do %>
-        <span class="glyphicon glyphicon-remove-sign red"></span>
-      <% end %>
-    <% end %>
-    </p>
-  <% end %>
-<% end %>
 
-<%= link_to "Reply", new_post_comment_path(@post), class: "btn btn-info"%>
+<div id="comments_list">
+  <%= render 'comments/list' %>
+</div>
+
+<hr>
+
+<%= link_to "Reply", new_post_comment_path(@post), remote: true, class: "btn btn-info", id: "add_comment_button"%>
+<div id="comment_form">
+</div>
+
+<hr>
 
 <% if is_admin? || current_user == @post.user %>
   <div class="btn-group btn-group-sm " role="group">

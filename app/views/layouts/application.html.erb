@@ -38,7 +38,7 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="/#">Home</a>
     <div class="navbar-collapse collapse">
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-left">
@@ -48,6 +48,7 @@
             <li><%= link_to "New Project", new_project_path %></li>
             <li><%= link_to "Posts", posts_path %></li>
             <li><%= link_to "New Post", new_post_path %></li>
+            <li><%= link_to "References", references_path %><li>
         </ul>
       <% end %>
     <ul class="nav navbar-nav navbar-right">
